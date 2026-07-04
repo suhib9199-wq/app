@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مخططات تنظيم منصة مجموعة الدخيل القابضة</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "base",
+      securityLevel: "loose",
+      flowchart: {
+        curve: "basis",
+        htmlLabels: true
+      },
+      themeVariables: {
+        primaryColor: "#0B1F3A",
+        primaryTextColor: "#ffffff",
+        primaryBorderColor: "#C8A24A",
+        lineColor: "#C8A24A",
+        secondaryColor: "#F7F3EA",
+        tertiaryColor: "#ffffff",
+        fontFamily: "Tahoma, Arial, sans-serif"
+      }
+    });
+  </script>
+  <style>
+    :root {
+      --navy: #0B1F3A;
+      --navy2: #102B4E;
+      --gold: #C8A24A;
+      --gold2: #E1C878;
+      --cream: #F7F3EA;
+      --white: #ffffff;
+      --gray: #6B7280;
+      --light: #F9FAFB;
+      --border: #E5E7EB;
+      --green: #0F766E;
+      --red: #B91C1C;
+      --blue: #1D4ED8;
+      --orange: #C2410C;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: linear-gradient(180deg, #ffffff 0%, #F7F3EA 100%);
+      color: #111827;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      color: white;
+      padding: 40px 28px;
+      border-bottom: 6px solid var(--gold);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      color: #E5E7EB;
+      font-size: 17px;
+      max-width: 920px;
+    }
+
+    .badge-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(200,162,74,0.65);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .badge-box strong {
+      color: var(--gold2);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .toc {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(11,31,58,0.08);
+      margin-top: 28px;
+    }
+
+    .toc h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .toc a {
+      display: block;
+      text-decoration: none;
+      color: var(--navy);
+      background: var(--cream);
+      border: 1px solid #eadfbd;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .toc a:hover {
+      background: #fff7df;
+      border-color: var(--gold);
+    }
+
+    section {
+      margin: 34px 0;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(11,31,58,0.07);
+    }
+
+    .section-head {
+      padding: 22px 26px;
+      background: linear-gradient(90deg, var(--navy), #173A63);
+      color: white;
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: #E5E7EB;
+    }
+
+    .content {
+      padding: 24px;
+    }
+
+    .note {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      color: #713F12;
+      padding: 14px 16px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+    }
+
+    .mermaid-wrap {
+      background: #ffffff;
+      border: 1px solid #E5E7EB;
+      border-radius: 18px;
+      padding: 20px;
+      overflow-x: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--gold);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--light);
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .card ul {
+      padding-right: 18px;
+      margin-bottom: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      margin-top: 16px;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--navy);
+      color: white;
+    }
+
+    tr:nth-child(even) td {
+      background: #FAFAFA;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #F3F4F6;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      color: var(--gray);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .toc-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .container {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container hero">
+      <div>
+        <h1>مخططات تنظيم منصة مجموعة الدخيل القابضة</h1>
+        <div class="subtitle">
+          لوحة توضيحية احترافية لتحويل تعقيد مشروع الموقع، الخدمات، وكلاء الذكاء الاصطناعي، المكالمات، الاجتماعات، الجداول التشغيلية، والعلاقات بين الكيانات إلى رؤية واضحة قابلة للتنفيذ.
+        </div>
+      </div>
+      <div class="badge-box">
+        <strong>Al Dakheel Holding Group</strong>
+        <div>الدومين المعتمد: www.aldakheelholding.com</div>
+        <div>اللغة: العربية</div>
+        <div>النمط: مؤسسي تنفيذي</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="toc">
+      <h2>فهرس المخططات</h2>
+      <div class="toc-grid">
+        <a href="#overview">1. الخريطة العامة للمشروع</a>
+        <a href="#website-structure">2. هيكل الموقع والخدمات</a>
+        <a href="#customer-journey">3. رحلة العميل</a>
+        <a href="#ai-agents">4. وكلاء الذكاء الاصطناعي</a>
+        <a href="#crm">5. دورة CRM والطلبات</a>
+        <a href="#calls-meetings">6. المكالمات والاجتماعات</a>
+        <a href="#service-process">7. عملية تقديم الخدمة</a>
+        <a href="#gantt">8. مخطط زمني Gantt</a>
+        <a href="#relationships">9. علاقات الشركات والهوية</a>
+        <a href="#raci">10. مصفوفة المسؤوليات</a>
+      </div>
+    </div>
+
+    <section id="overview">
+      <div class="section-head">
+        <h2>1. الخريطة العامة للمشروع</h2>
+        <p>تصور شامل يوضح مكونات المنصة الرقمية والهوية المؤسسية والأنظمة التشغيلية.</p>
+      </div>
+      <div class="content">
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+mindmap
+root((مجموعة الدخيل القابضة<br/>Al Dakheel Holding Group))
+  المنصة الرقمية
+    موقع Responsive
+    بوابة خدمات موحدة
+    صفحات الشركات التابعة
+    محرك بحث داخلي
+    نماذج طلبات واستفسارات
+  الشركات التابعة
+    شركة الوشاح
+      تجارة عامة
+      الإمارات
+    شركة سيشل
+      استشارات تجارية عابرة للحدود
+    أفق القوة التجارية
+      تجارة واستيراد وتصدير
+      الأردن
+    دار الأخوة العامر للإسكان
+      إسكانات وأراضي
+      الأردن
+  الأنظمة التقنية
+    CRM
+    ذكاء اصطناعي
+    جدولة مواعيد
+    رسائل ومتابعات
+    لوحة تحكم
+    تكامل Social Media
+  الهوية البصرية
+    شعار المجموعة
+    صيانة شعار الوشاح
+    تحسين الشعارات الحالية
+    شعار دار الأخوة العامر
+    ألوان كحلي وذهبي وأبيض
+  محمد الجهران
+    كرت تعريفي رقمي
+    QR Code
+    صور تنفيذية
+    صور فنية للموقع
+  التنفيذ
+    اعتماد الاسم والدومين
+    تصميم الشعارات
+    إنتاج الصور
+    بناء الموقع
+    ربط الأنظمة
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="website-structure">
+      <div class="section-head">
+        <h2>2. هيكل الموقع والخدمات</h2>
+        <p>مخطط يوضح توزيع الصفحات الرئيسية والفرعية وطريقة الوصول إلى الخدمات.</p>
+      </div>
+      <div class="content">
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+flowchart TD
+A[الصفحة الرئيسية<br/>مجموعة الدخيل القابضة] --> B[عن المجموعة]
+A --> C[الشركات التابعة]
+A --> D[الخدمات]
+A --> E[الكرت التعريفي الرقمي]
+A --> F[تواصل معنا]
+A --> G[بوابة العميل]
+A --> H[لوحة الإدارة]
+
+C --> C1[شركة الوشاح<br/>تجارة عامة - الإمارات]
+C --> C2[شركة سيشل<br/>استشارات عابرة للحدود]
+C --> C3[أفق القوة التجارية<br/>استيراد وتصدير - الأردن]
+C --> C4[دار الأخوة العامر للإسكان<br/>إسكانات وأراضي - الأردن]
+
+D --> D1[التجارة العامة]
+D --> D2[الاستشارات التجارية]
+D --> D3[الاستيراد والتصدير]
+D --> D4[الإسكان والأراضي]
+
+D1 --> S1[صفحة خدمة تفصيلية]
+D2 --> S2[صفحة خدمة تفصيلية]
+D3 --> S3[صفحة خدمة تفصيلية]
+D4 --> S4[صفحة خدمة تفصيلية]
+
+S1 --> CTA1[طلب عرض]
+S2 --> CTA2[حجز استشارة]
+S3 --> CTA3[طلب استيراد أو تصدير]
+S4 --> CTA4[طلب عقار أو أرض]
+
+CTA1 --> CRM[CRM]
+CTA2 --> CRM
+CTA3 --> CRM
+CTA4 --> CRM
+
+CRM --> TEAM[الفريق المختص]
+CRM --> AI[وكلاء الذكاء الاصطناعي]
+CRM --> MSG[رسائل ومتابعات]
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="customer-journey">
+      <div class="section-head">
+        <h2>3. رحلة العميل داخل المنصة</h2>
+        <p>من أول زيارة وحتى المتابعة والتحويل إلى الفريق المختص.</p>
+      </div>
+      <div class="content">
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+flowchart LR
+A[دخول العميل إلى الموقع] --> B{مصدر العميل}
+B --> B1[Google / بحث مباشر]
+B --> B2[WhatsApp]
+B --> B3[Instagram]
+B --> B4[Facebook]
+B --> B5[LinkedIn]
+B --> B6[QR Code]
+
+B1 --> C[الصفحة الرئيسية]
+B2 --> C
+B3 --> C
+B4 --> C
+B5 --> C
+B6 --> C
+
+C --> D{اختيار المسار}
+D --> D1[استعراض الشركات]
+D --> D2[استعراض الخدمات]
+D --> D3[محادثة المساعد الذكي]
+D --> D4[حجز موعد]
+D --> D5[تواصل مباشر]
+
+D1 --> E[صفحة الشركة المناسبة]
+D2 --> F[صفحة الخدمة المناسبة]
+D3 --> G[تحديد احتياج العميل]
+D4 --> H[نظام جدولة المواعيد]
+D5 --> I[WhatsApp أو نموذج تواصل]
+
+E --> J[تعبئة نموذج الطلب]
+F --> J
+G --> J
+H --> K[تأكيد الموعد]
+I --> J
+
+J --> L[حفظ الطلب في CRM]
+K --> L
+L --> M[تصنيف الطلب حسب الشركة والخدمة والأولوية]
+M --> N[تحويل للفريق المختص]
+N --> O[متابعة تلقائية ورسائل تأكيد]
+O --> P[إغلاق الطلب أو تحويله لفرصة تجارية]
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-agents">
+      <div class="section-head">
+        <h2>4. منظومة وكلاء الذكاء الاصطناعي</h2>
+        <p>توزيع الأدوار الافتراضية داخل المنصة وربطها بالعملاء والفرق الداخلية.</p>
+      </div>
+      <div class="content">
+        <div class="cards">
+          <div class="card">
+            <h3>الاستقبال والتوجيه</h3>
+            <ul>
+              <li>يرحب بالزائر</li>
+              <li>يفهم الاحتياج</li>
+              <li>يوجه للشركة المناسبة</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>خدمة العملاء</h3>
+            <ul>
+              <li>أسئلة متكررة</li>
+              <li>شرح الخدمات</li>
+              <li>مواعيد العمل</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>المبيعات والمتابعة</h3>
+            <ul>
+              <li>جمع بيانات العملاء</li>
+              <li>تصنيف الطلبات</li>
+              <li>إرسالها للفريق</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>الوكلاء المتخصصون</h3>
+            <ul>
+              <li>الإسكان والعقارات</li>
+              <li>الاستيراد والتصدير</li>
+              <li>الاستشارات التجارية</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+flowchart TD
+U[العميل] --> R[موظف استقبال ذكي]
+R --> Q{ما نوع الاحتياج؟}
+
+Q --> A1[خدمة عامة]
+Q --> A2[استشارة تجارية]
+Q --> A3[استيراد وتصدير]
+Q --> A4[إسكان وأراضي]
+Q --> A5[حجز اجتماع]
+Q --> A6[متابعة طلب]
+
+A1 --> CS[وكيل خدمة العملاء]
+A2 --> BA[وكيل الاستشارات التجارية]
+A3 --> EX[وكيل الاستيراد والتصدير]
+A4 --> RE[وكيل العقارات والإسكان]
+A5 --> MT[وكيل حجز المواعيد]
+A6 --> SL[وكيل المبيعات والمتابعة]
+
+CS --> CRM[CRM]
+BA --> CRM
+EX --> CRM
+RE --> CRM
+MT --> CRM
+SL --> CRM
+
+CRM --> D1[تصنيف العميل]
+CRM --> D2[حفظ المحادثة]
+CRM --> D3[تحديد مصدر العميل]
+CRM --> D4[إنشاء مهمة متابعة]
+
+D1 --> TEAM[الفريق المختص]
+D2 --> DASH[لوحة التحكم]
+D3 --> DASH
+D4 --> MSG[نظام الرسائل والمتابعات]
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="crm">
+      <div class="section-head">
+        <h2>5. دورة CRM وإدارة الطلبات</h2>
+        <p>كيف ينتقل الاستفسار من قناة الدخول إلى قاعدة البيانات ثم المتابعة والإغلاق.</p>
+      </div>
+      <div class="content">
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+stateDiagram-v2
+[*] --> طلب_جديد
+طلب_جديد --> التحقق_من_البيانات
+التحقق_من_البيانات --> بيانات_ناقصة: إذا كانت المعلومات غير مكتملة
+بيانات_ناقصة --> طلب_استكمال_البيانات
+طلب_استكمال_البيانات --> التحقق_من_البيانات
+
+التحقق_من_البيانات --> تصنيف_الطلب: إذا كانت المعلومات مكتملة
+تصنيف_الطلب --> أولوية_عالية
+تصنيف_الطلب --> أولوية_متوسطة
+تصنيف_الطلب --> أولوية_عادية
+
+أولوية_عالية --> تحويل_فوري_للفريق
+أولوية_متوسطة --> جدولة_متابعة
+أولوية_عادية --> رد_آلي_ومتابعة
+
+تحويل_فوري_للفريق --> قيد_المعالجة
+جدولة_متابعة --> قيد_المعالجة
+رد_آلي_ومتابعة --> قيد_المعالجة
+
+قيد_المعالجة --> فرصة_تجارية
+قيد_المعالجة --> طلب_مغلق
+فرصة_تجارية --> اجتماع_أو_عرض_سعر
+اجتماع_أو_عرض_سعر --> متابعة_نهائية
+متابعة_نهائية --> طلب_مغلق
+طلب_مغلق --> [*]
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="calls-meetings">
+      <div class="section-head">
+        <h2>6. تنظيم المكالمات والاجتماعات والصوت</h2>
+        <p>تدفق العمل الخاص بالحجز، التأكيد، المكالمات، الاجتماعات، والتذكيرات.</p>
+      </div>
+      <div class="content">
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+sequenceDiagram
+participant عميل as العميل
+participant موقع as الموقع
+participant AI as وكيل الذكاء الاصطناعي
+participant Calendar as نظام المواعيد
+participant CRM as CRM
+participant Team as الفريق المختص
+participant Msg as الرسائل والتذكيرات
+
+عميل->>موقع: طلب حجز موعد أو مكالمة
+موقع->>AI: إرسال بيانات الطلب
+AI->>عميل: سؤال عن نوع الخدمة والوقت المناسب
+عميل->>AI: تحديد الخدمة والوقت
+AI->>Calendar: فحص التوفر
+Calendar-->>AI: أوقات متاحة
+AI->>عميل: اقتراح المواعيد
+عميل->>AI: تأكيد الموعد
+AI->>CRM: حفظ الطلب والموعد ومصدر العميل
+CRM->>Team: إشعار الفريق المختص
+AI->>Msg: إرسال رسالة تأكيد
+Msg->>عميل: تأكيد الموعد عبر WhatsApp أو Email
+Msg->>عميل: تذكير قبل الاجتماع
+Team->>عميل: تنفيذ المكالمة أو الاجتماع
+Team->>CRM: تحديث حالة الطلب ونتيجة الاجتماع
+          </pre>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>نوع التواصل</th>
+              <th>الهدف</th>
+              <th>الأداة المقترحة</th>
+              <th>المخرجات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>مكالمة صوتية</td>
+              <td>فهم الاحتياج بسرعة</td>
+              <td>WhatsApp / Call Center</td>
+              <td>ملخص مكالمة داخل CRM</td>
+            </tr>
+            <tr>
+              <td>اجتماع استشاري</td>
+              <td>مناقشة تفصيلية مع العميل</td>
+              <td>Google Meet / Zoom / Teams</td>
+              <td>موعد مؤكد + ملاحظات</td>
+            </tr>
+            <tr>
+              <td>رسالة متابعة</td>
+              <td>تأكيد أو تذكير أو عرض</td>
+              <td>Email / WhatsApp</td>
+              <td>زيادة فرص التحويل</td>
+            </tr>
+            <tr>
+              <td>محادثة ذكاء اصطناعي</td>
+              <td>رد فوري على الاستفسارات</td>
+              <td>AI Chat / Voice Agent</td>
+              <td>تصنيف تلقائي للطلب</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="service-process">
+      <div class="section-head">
+        <h2>7. عملية تقديم الخدمة من الطلب إلى التسليم</h2>
+        <p>مخطط تشغيلي موحد لأي خدمة داخل المنصة.</p>
+      </div>
+      <div class="content">
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+flowchart TD
+A[استقبال الطلب] --> B[تحديد الشركة المسؤولة]
+B --> C{نوع الخدمة}
+C --> C1[تجارة عامة]
+C --> C2[استشارات تجارية]
+C --> C3[استيراد وتصدير]
+C --> C4[إسكان وأراضي]
+
+C1 --> D[جمع تفاصيل الطلب]
+C2 --> D
+C3 --> D
+C4 --> D
+
+D --> E{اكتمال البيانات؟}
+E -->|لا| F[طلب معلومات إضافية]
+F --> D
+E -->|نعم| G[تسجيل الطلب في CRM]
+
+G --> H[تعيين مسؤول متابعة]
+H --> I[تحليل الطلب]
+I --> J{هل يحتاج اجتماع؟}
+J -->|نعم| K[جدولة اجتماع أو مكالمة]
+J -->|لا| L[إعداد الرد أو العرض]
+
+K --> L
+L --> M[إرسال عرض أو توجيه رسمي]
+M --> N{قرار العميل}
+N -->|موافق| O[بدء تنفيذ الخدمة]
+N -->|يحتاج تعديل| P[تعديل العرض أو البيانات]
+P --> M
+N -->|غير مهتم حالياً| Q[حفظه كعميل محتمل للمتابعة]
+
+O --> R[متابعة التنفيذ]
+R --> S[إغلاق الطلب]
+S --> T[رسالة شكر وتقييم]
+Q --> U[رسائل متابعة مستقبلية]
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="gantt">
+      <div class="section-head">
+        <h2>8. مخطط زمني Gantt لخطة التنفيذ</h2>
+        <p>ترتيب مراحل العمل من اعتماد الاسم والدومين إلى إطلاق المنصة.</p>
+      </div>
+      <div class="content">
+        <div class="note">
+          يمكن تعديل التواريخ والمدد حسب تاريخ بدء المشروع الفعلي وحجم فريق التصميم والبرمجة.
+        </div>
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+gantt
+title خطة تنفيذ منصة مجموعة الدخيل القابضة
+dateFormat  YYYY-MM-DD
+axisFormat  %d-%m
+
+section الاعتماد والتأسيس
+اعتماد اسم المجموعة والدومين           :a1, 2026-07-06, 2d
+تثبيت التوجه المؤسسي العام             :a2, after a1, 2d
+
+section الهوية البصرية
+تصميم شعار مجموعة الدخيل القابضة       :b1, after a2, 5d
+صيانة شعار الوشاح                      :b2, after b1, 4d
+تحسين الشعارات الحالية                 :b3, after b2, 5d
+إنشاء شعار دار الأخوة العامر للإسكان    :b4, after b3, 4d
+تجهيز ملفات PNG SVG PDF Icon           :b5, after b4, 3d
+
+section صور المؤسس والكرت الرقمي
+إنتاج صور محمد الجهران                 :c1, after b2, 5d
+تجهيز الكرت التعريفي الرقمي QR Code    :c2, after c1, 3d
+
+section تجربة المستخدم والمحتوى
+هيكلة صفحات الموقع والخدمات            :d1, after b1, 4d
+كتابة المحتوى النهائي للصفحات          :d2, after d1, 5d
+تصميم واجهات الموقع UI                 :d3, after d2, 6d
+
+section البناء التقني
+تطوير الصفحة الرئيسية                  :e1, after d3, 5d
+تطوير صفحات الشركات والخدمات           :e2, after e1, 7d
+دمج CRM والنماذج                       :e3, after e2, 5d
+دمج WhatsApp ووسائل التواصل            :e4, after e3, 3d
+تفعيل جدولة المواعيد والرسائل          :e5, after e4, 4d
+تطوير وكلاء الذكاء الاصطناعي           :e6, after e5, 7d
+إنشاء لوحة التحكم                      :e7, after e6, 6d
+
+section الاختبار والإطلاق
+اختبار شامل وتجربة المستخدم            :f1, after e7, 5d
+تعديلات نهائية                         :f2, after f1, 3d
+الإطلاق الرسمي                         :milestone, f3, after f2, 1d
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="relationships">
+      <div class="section-head">
+        <h2>9. علاقات الشركات والهوية داخل المجموعة</h2>
+        <p>مخطط يوضح علاقة المجموعة بالشركات التابعة، الألوان، والشعارات.</p>
+      </div>
+      <div class="content">
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+flowchart TD
+G[مجموعة الدخيل القابضة<br/>Al Dakheel Holding Group] --> ID[الهوية البصرية الموحدة<br/>كحلي + ذهبي + أبيض]
+G --> DOM[الدومين الرسمي<br/>www.aldakheelholding.com]
+G --> PLATFORM[المنصة الرقمية الموحدة]
+G --> CHAIR[محمد الجهران<br/>رئيس مجلس الإدارة]
+
+PLATFORM --> W[شركة الوشاح<br/>Al Wasah General Trading L.L.C]
+PLATFORM --> S[شركة سيشل<br/>Cross Border Business Advisory]
+PLATFORM --> P[أفق القوة التجارية<br/>Power Horizon Trading Company]
+PLATFORM --> H[دار الأخوة العامر للإسكان<br/>Dar Al Okhwa Al Amer Housing]
+
+W --> W1[تجارة عامة - الإمارات]
+W --> W2[ألوان: أسود + ذهبي]
+W --> W3[صيانة الشعار وإزالة الازدحام]
+
+S --> S1[استشارات عابرة للحدود]
+S --> S2[ألوان: أزرق + كحلي]
+S --> S3[نسخ عالية الدقة وشفافة وأفقية وIcon]
+
+P --> P1[تجارة واستيراد وتصدير - الأردن]
+P --> P2[ألوان: ذهبي + بني/كحلي]
+P --> P3[تبسيط الشعار وتصحيح الاسم]
+
+H --> H1[إسكانات وأراضي - الأردن]
+H --> H2[ألوان: كحلي + ذهبي + بيج حجري]
+H --> H3[إنشاء شعار جديد]
+
+CHAIR --> CARD[كرت تعريفي رقمي]
+CHAIR --> QR[QR Code]
+CHAIR --> PHOTO[حزمة صور تنفيذية وفنية]
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="raci">
+      <div class="section-head">
+        <h2>10. مصفوفة المسؤوليات RACI</h2>
+        <p>تحديد المسؤوليات بين المالك، المصمم، المبرمج، كاتب المحتوى، ومسؤول التشغيل.</p>
+      </div>
+      <div class="content">
+        <table>
+          <thead>
+            <tr>
+              <th>المهمة</th>
+              <th>المالك / الإدارة</th>
+              <th>المصمم</th>
+              <th>المبرمج</th>
+              <th>كاتب المحتوى</th>
+              <th>مسؤول التشغيل</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>اعتماد الاسم والدومين</td>
+              <td>مسؤول واعتماد نهائي</td>
+              <td>استشارة بصرية</td>
+              <td>تحقق تقني</td>
+              <td>توحيد الصياغة</td>
+              <td>متابعة</td>
+            </tr>
+            <tr>
+              <td>تصميم شعار المجموعة</td>
+              <td>اعتماد نهائي</td>
+              <td>مسؤول تنفيذ</td>
+              <td>استشارة استخدام رقمي</td>
+              <td>مراجعة الأسماء</td>
+              <td>متابعة الملفات</td>
+            </tr>
+            <tr>
+              <td>تحسين الشعارات الحالية</td>
+              <td>اعتماد</td>
+              <td>مسؤول تنفيذ</td>
+              <td>استلام الصيغ للموقع</td>
+              <td>تدقيق النصوص</td>
+              <td>تنظيم الأصول</td>
+            </tr>
+            <tr>
+              <td>إنتاج صور محمد الجهران</td>
+              <td>اعتماد الصور</td>
+              <td>تنفيذ ومعالجة</td>
+              <td>تهيئة للموقع</td>
+              <td>توصيف الاستخدامات</td>
+              <td>أرشفة</td>
+            </tr>
+            <tr>
+              <td>كتابة محتوى الموقع</td>
+              <td>مراجعة واعتماد</td>
+              <td>تنسيق بصري</td>
+              <td>إدخال المحتوى</td>
+              <td>مسؤول تنفيذ</td>
+              <td>مراجعة تشغيلية</td>
+            </tr>
+            <tr>
+              <td>بناء الموقع</td>
+              <td>اعتماد المخرجات</td>
+              <td>تسليم UI</td>
+              <td>مسؤول تنفيذ</td>
+              <td>تزويد النصوص</td>
+              <td>اختبار الاستخدام</td>
+            </tr>
+            <tr>
+              <td>دمج CRM وAI</td>
+              <td>تحديد المتطلبات</td>
+              <td>تصميم الواجهات</td>
+              <td>مسؤول تنفيذ</td>
+              <td>سيناريوهات الردود</td>
+              <td>تشغيل ومتابعة</td>
+            </tr>
+            <tr>
+              <td>الإطلاق الرسمي</td>
+              <td>اعتماد نهائي</td>
+              <td>فحص الهوية</td>
+              <td>نشر وتشغيل</td>
+              <td>مراجعة نهائية</td>
+              <td>متابعة ما بعد الإطلاق</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="legend">
+          <span><i class="dot" style="background: var(--navy);"></i> مسؤول: ينفذ المهمة</span>
+          <span><i class="dot" style="background: var(--gold);"></i> اعتماد: صاحب القرار النهائي</span>
+          <span><i class="dot" style="background: var(--green);"></i> استشارة: يقدم مدخلات داعمة</span>
+          <span><i class="dot" style="background: var(--blue);"></i> متابعة: يضمن سير العمل</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    تم إعداد هذه اللوحة لتوضيح مشروع منصة مجموعة الدخيل القابضة وتحويل التفاصيل التشغيلية والتقنية إلى مخططات عملية قابلة للتنفيذ.
+  </footer>
+</body>
+</html>
